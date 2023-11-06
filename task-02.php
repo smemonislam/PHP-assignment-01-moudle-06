@@ -57,9 +57,11 @@ try {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($stmt->fetchAll() as $key => $data) : ?>
+                        <?php
+                        $i = 1;
+                        foreach ($stmt->fetchAll() as $key => $data) : ?>
                             <tr>
-                                <th scope="row"><?= $data['id']; ?></th>
+                                <th scope="row"><?= $i++; ?></th>
                                 <td><?= $data['name']; ?></td>
                                 <td><?= $data['quantity']; ?></td>
                                 <td><?= $data['total_amount']; ?></td>

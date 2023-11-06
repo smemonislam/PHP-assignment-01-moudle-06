@@ -13,6 +13,7 @@ try {
             c.id,
             c.name,
             c.email,
+            c.location,
             COUNT(o.id) AS total_orders
         FROM
             customers c
@@ -53,15 +54,19 @@ try {
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Location</th>
                             <th scope="col">Total Orders</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($stmt->fetchAll() as $key => $data) : ?>
+                        <?php
+                        $i = 1;
+                        foreach ($stmt->fetchAll() as $key => $data) : ?>
                             <tr>
-                                <th scope="row"><?= $data['id']; ?></th>
+                                <th scope="row"><?= $i++ ?></th>
                                 <td><?= $data['name']; ?></td>
                                 <td><?= $data['email']; ?></td>
+                                <td><?= $data['location']; ?></td>
                                 <td><?= $data['total_orders']; ?></td>
                             </tr>
                         <?php endforeach; ?>
